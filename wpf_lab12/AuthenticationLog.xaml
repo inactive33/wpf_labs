@@ -1,0 +1,30 @@
+﻿<Window x:Class="wpf_lab12.AuthenticationLog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_lab12"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Loaded="Login_in_Load"
+        mc:Ignorable="d" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Cursor="Hand">
+    <Grid Background="Transparent" Cursor="Hand">
+        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="700" CornerRadius="20" Cursor="Hand">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="60" Color="LightGray"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Окно авторизации" FontSize="30" Margin="0 0 0 30" FontWeight="Bold"/>
+                <Grid Margin="0 0 0 20">
+                    <Button HorizontalAlignment="Left" Content="Регистрация" Click="Sign_in_Click"></Button>
+                    <Button HorizontalAlignment="Right" Content="Log in" Style="{StaticResource MaterialDesignFlatButton}"/>
+                </Grid>
+                <TextBox x:Name="txtBoxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <PasswordBox x:Name="passBoxPassword" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <Button Content="Вход" Margin="0 20" Click="Button_Log_Click"/>
+            </StackPanel>
+        </Border>
+        <Button x:Name="CloseApp"
+                Style="{StaticResource ExitApp}"
+                Click="CloseApp_Click" Margin="0,140,190,0" RenderTransformOrigin="0.575,0.575"/>
+    </Grid>
+</Window>

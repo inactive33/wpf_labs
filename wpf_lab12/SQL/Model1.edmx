@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище AppBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "AppBase.dbo.customers" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="id_customer" />
+            <PropertyRef Name="surname_customer" />
+            <PropertyRef Name="name_customer" />
+            <PropertyRef Name="patronymic_customer" />
+            <PropertyRef Name="telephone_customer" />
+            <PropertyRef Name="email_customer" />
+          </Key>
+          <Property Name="id_customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="surname_customer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_customer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="patronymic_customer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telephone_customer" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="email_customer" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "AppBase.dbo.register" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="register">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="login_user" />
+            <PropertyRef Name="password_user" />
+            <PropertyRef Name="email_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email_user" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Хранилище AppBaseModelContainer">
+          <EntitySet Name="customers" EntityType="Self.customers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [customers].[id_customer] AS [id_customer], 
+    [customers].[surname_customer] AS [surname_customer], 
+    [customers].[name_customer] AS [name_customer], 
+    [customers].[patronymic_customer] AS [patronymic_customer], 
+    [customers].[telephone_customer] AS [telephone_customer], 
+    [customers].[email_customer] AS [email_customer]
+    FROM [dbo].[customers] AS [customers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="register" EntityType="Self.register" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [register].[id_user] AS [id_user], 
+    [register].[login_user] AS [login_user], 
+    [register].[password_user] AS [password_user], 
+    [register].[email_user] AS [email_user]
+    FROM [dbo].[register] AS [register]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AppBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="id_customer" />
+            <PropertyRef Name="surname_customer" />
+            <PropertyRef Name="name_customer" />
+            <PropertyRef Name="patronymic_customer" />
+            <PropertyRef Name="telephone_customer" />
+            <PropertyRef Name="email_customer" />
+          </Key>
+          <Property Name="id_customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="surname_customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name_customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="patronymic_customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telephone_customer" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="register">
+          <Key>
+            <PropertyRef Name="id_user" />
+            <PropertyRef Name="login_user" />
+            <PropertyRef Name="password_user" />
+            <PropertyRef Name="email_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AppBaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="customers" EntityType="Self.customers" />
+          <EntitySet Name="register" EntityType="Self.register" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AppBaseModelContainer" CdmEntityContainer="AppBaseEntities1">
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="AppBaseModel.customers">
+              <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+                <ScalarProperty Name="surname_customer" ColumnName="surname_customer" />
+                <ScalarProperty Name="name_customer" ColumnName="name_customer" />
+                <ScalarProperty Name="patronymic_customer" ColumnName="patronymic_customer" />
+                <ScalarProperty Name="telephone_customer" ColumnName="telephone_customer" />
+                <ScalarProperty Name="email_customer" ColumnName="email_customer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="register">
+            <EntityTypeMapping TypeName="AppBaseModel.register">
+              <MappingFragment StoreEntitySet="register">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="login_user" ColumnName="login_user" />
+                <ScalarProperty Name="password_user" ColumnName="password_user" />
+                <ScalarProperty Name="email_user" ColumnName="email_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
